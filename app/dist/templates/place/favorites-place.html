@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display:inline-block">Favourite Places</h3>
+
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" ng-if="favourites.length > 0">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>LocationName</th>
+                                <th>description</th>
+                                <th>zipcode</th>
+                                <th>province</th>
+                                <th>country</th>
+                                <th>city</th>
+                                <th>address</th>
+                                <th colspan="2"></th>
+
+                            </tr>
+
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="favourite in favourites" ng-if="favourite.location!=null">
+
+                                <td>{{ favourite.location.locationName}}</td>
+                                <td>{{ favourite.location.description}}</td>
+                                <td>{{ favourite.location.zipcode}}</td>
+                                <td>{{ favourite.location.province}}</td>
+                                <td>{{ favourite.location.country}}</td>
+                                <td>{{ favourite.location.city}}</td>
+                                <td>{{ favourite.location.address}}
+                                <td><a href="javascript:void(0)" ng-click='viewPlace(favourite.location._id )'>View</a></td>
+                                <td><a href="javascript:void(0)" ng-click='deleteFavourite(favourite._id)'>Remove</a></td>
+
+
+
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <div class="alert alert-warning" ng-if="favourites.length == 0">No data found.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
